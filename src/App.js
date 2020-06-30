@@ -29,10 +29,22 @@ class Odometer extends React.Component{
       }
     }
 
-    updateOnes(operation, unit){
+    updateOnes(operation, word_unit){
       let current_odometer_value = this.state.odometer_value
-      let new_odometer_value
+      let new_odometer_value, unit
 
+      if (word_unit === "ones"){
+        unit = 1
+      }
+      if (word_unit === "tens"){
+        unit = 10
+      }
+      if (word_unit === "tundreds"){
+        unit = 100
+      }
+      if (word_unit === "thousands"){
+        unit = 1000
+      }
 
       if (operation === "substract"){
         new_odometer_value = current_odometer_value - unit;
@@ -72,21 +84,21 @@ class Odometer extends React.Component{
               <label className="odometer"> {this.formatOdometerValue()}</label></p>
             <hr></hr>
 
-            <button onClick={() => this.updateOnes("substract", 1)}> - </button> 
+            <button onClick={() => this.updateOnes("substract", "ones")}> - </button> 
             <label>Ones </label> 
-            <button onClick={() => this.updateOnes("add", 1)}> + </button> 
+            <button onClick={() => this.updateOnes("add", "ones")}> + </button> 
             <br></br>
-            <button onClick={() => this.updateOnes("substract", 10)}> - </button> 
+            <button onClick={() => this.updateOnes("substract", "tens")}> - </button> 
             <label>Tens </label> 
-            <button onClick={() => this.updateOnes("add", 10)}> + </button> 
+            <button onClick={() => this.updateOnes("add", "tens")}> + </button> 
             <br></br>
-            <button onClick={() => this.updateOnes("substract", 100)}> - </button> 
+            <button onClick={() => this.updateOnes("substract", "tundreds")}> - </button> 
             <label>Tundreds </label> 
-            <button onClick={() => this.updateOnes("add", 100)}> + </button> 
+            <button onClick={() => this.updateOnes("add", "tundreds")}> + </button> 
             <br></br>
-            <button onClick={() => this.updateOnes("substract", 1000)}> - </button> 
+            <button onClick={() => this.updateOnes("substract", "thousands")}> - </button> 
             <label>Thousands </label> 
-            <button onClick={() => this.updateOnes("add", 1000)}> + </button>             
+            <button onClick={() => this.updateOnes("add", "thousands")}> + </button>             
             <hr></hr>
          </>
     }
