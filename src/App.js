@@ -33,18 +33,10 @@ class Odometer extends React.Component{
       let current_odometer_value = this.state.odometer_value
       let new_odometer_value, unit
 
-      if (word_unit === "ones"){
-        unit = 1
-      }
-      if (word_unit === "tens"){
-        unit = 10
-      }
-      if (word_unit === "tundreds"){
-        unit = 100
-      }
-      if (word_unit === "thousands"){
-        unit = 1000
-      }
+      if (word_unit === "ones"){ unit = 1  }
+      if (word_unit === "tens"){ unit = 10 }
+      if (word_unit === "tundreds"){ unit = 100 }
+      if (word_unit === "thousands"){ unit = 1000 }
 
       if (operation === "substract"){
         new_odometer_value = current_odometer_value - unit;
