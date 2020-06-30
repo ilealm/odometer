@@ -4,11 +4,20 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Header />
+      <Header wanna="coffee" />
       <Odometer />
       <Footer />      
     </div>
   );
+}
+
+
+class Header extends React.Component{
+  render(){
+      return <> 
+          <h1>Header {this.props.wanna}</h1>
+          </>
+  }
 }
 
 
@@ -77,13 +86,9 @@ class Odometer extends React.Component{
 }
 
 
-class Header extends React.Component{
-  render(){
-      return <> 
-          <h1>Header</h1>
-          </>
-  }
-}
+
+
+
 
 class Footer extends React.Component{
   render(){
