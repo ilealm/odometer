@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Odometer />
+      <Footer />
+      
     </div>
   );
 }
+
+
+class Odometer extends React.Component{
+    render(){
+        return <h1>render</h1>
+    }
+}
+
+
+class Header extends React.Component{
+  render(){
+      return <h1>Header</h1>
+  }
+}
+
+class Footer extends React.Component{
+  render(){
+      return <h1>Footer</h1>
+  }
+}
+
 
 export default App;
