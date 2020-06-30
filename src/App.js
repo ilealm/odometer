@@ -16,27 +16,51 @@ class Odometer extends React.Component{
     constructor(){
       super();
       this.state = {
-        odometer_value : 0,
+        odometer_value : 9998,
       }
     }
 
-    updateOnes(operation){
-      let new_odometer_value = 100
+    updateOnes(operation, unit){
+      let current_odometer_value = this.state.odometer_value
+      // let new_odometer_value = current_odometer_value + 100
+      let new_odometer_value
+
+
+      if (operation === "substract"){
+        new_odometer_value = current_odometer_value - unit;
+      }
+      else {
+        new_odometer_value = current_odometer_value + unit;
+      }
+
+      // VALIDATIONS
+      if (new_odometer_value < 0) {
+        new_odometer_value = 0
+      }
+      // CASES WHEN new_odometer_value > 9999
+      if (new_odometer_value >9999 ) {
+        new_odometer_value = new_odometer_value - 10000
+      }
+
 
       this.setState({
         odometer_value : new_odometer_value,
       })
+
+
     }
 
+
+    
     render(){
         return <>
             <h3>Please update the Odometer</h3>
-            
+
             <p>Current value of the Odometer {this.state.odometer_value}</p>
             <hr></hr>
-            <button onClick={() => this.updateOnes("substract")}> - </button> 
+            <button onClick={() => this.updateOnes("substract", 1)}> - </button> 
             <label>Ones </label> 
-            <button onClick={() => this.updateOnes("substract")}> + </button> 
+            <button onClick={() => this.updateOnes("add", 1)}> + </button> 
             <hr></hr>
          </>
     }
