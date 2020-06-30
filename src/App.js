@@ -22,7 +22,6 @@ class Odometer extends React.Component{
 
     updateOnes(operation, unit){
       let current_odometer_value = this.state.odometer_value
-      // let new_odometer_value = current_odometer_value + 100
       let new_odometer_value
 
 
@@ -42,11 +41,9 @@ class Odometer extends React.Component{
         new_odometer_value = new_odometer_value - 10000
       }
 
-
       this.setState({
         odometer_value : new_odometer_value,
       })
-
 
     }
 
@@ -58,9 +55,22 @@ class Odometer extends React.Component{
 
             <p>Current value of the Odometer {this.state.odometer_value}</p>
             <hr></hr>
+
             <button onClick={() => this.updateOnes("substract", 1)}> - </button> 
             <label>Ones </label> 
             <button onClick={() => this.updateOnes("add", 1)}> + </button> 
+            <br></br>
+            <button onClick={() => this.updateOnes("substract", 10)}> - </button> 
+            <label>Tens </label> 
+            <button onClick={() => this.updateOnes("add", 10)}> + </button> 
+            <br></br>
+            <button onClick={() => this.updateOnes("substract", 100)}> - </button> 
+            <label>Tundreds </label> 
+            <button onClick={() => this.updateOnes("add", 100)}> + </button> 
+            <br></br>
+            <button onClick={() => this.updateOnes("substract", 1000)}> - </button> 
+            <label>Thousands </label> 
+            <button onClick={() => this.updateOnes("add", 1000)}> + </button>             
             <hr></hr>
          </>
     }
