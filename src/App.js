@@ -4,9 +4,9 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Header wanna="coffee" />
+      <Header greeting="Welcome to Coffee Odometors, what's how we roll !" />
       <Odometer />
-      <Footer />      
+      <Footer trademark="ILM Creations, 2020"/>      
     </div>
   );
 }
@@ -15,7 +15,7 @@ function App() {
 class Header extends React.Component{
   render(){
       return <> 
-          <h1>Header {this.props.wanna}</h1>
+          <h1>{this.props.greeting}</h1>
           </>
   }
 }
@@ -25,7 +25,7 @@ class Odometer extends React.Component{
     constructor(){
       super();
       this.state = {
-        odometer_value : 9998,
+        odometer_value : 0,
       }
     }
 
@@ -56,13 +56,20 @@ class Odometer extends React.Component{
 
     }
 
-
+    formatOdometerValue(){
+      let value = String(this.state.odometer_value)     
+      value = "000" + value
+      return value.slice(-4)
+     
+    }
     
     render(){
         return <>
             <h3>Please update the Odometer</h3>
 
-            <p>Current value of the Odometer {this.state.odometer_value}</p>
+            {/* <p>Current value of the Odometer {this.state.odometer_value}</p> */}
+            <p>Current value of the Odometer 
+              <label className="odometer"> {this.formatOdometerValue()}</label></p>
             <hr></hr>
 
             <button onClick={() => this.updateOnes("substract", 1)}> - </button> 
@@ -88,11 +95,11 @@ class Odometer extends React.Component{
 
 
 
-
-
 class Footer extends React.Component{
   render(){
-      return <h1>Footer</h1>
+      return <>
+        <h4>{this.props.trademark}</h4>
+      </>
   }
 }
 
